@@ -2,15 +2,15 @@
   <img src="logo.png" alt="PocketCode" width="600">
 </p>
 
-# 📱 PocketCode
+# PocketCode
 
 **Build apps using AI right from your Android phone.**
 
 **Features:**
-- 🔒 **Secure Sandbox** — Your code stays private, other apps can't access it
-- ⚡ **Fast** — Runs natively on your phone's CPU, no cloud lag
-- 🚀 **2 Commands Setup** — Copy-paste and you're ready to code
-- 🌐 **Web + Terminal** — Use browser UI or terminal, your choice
+- **Secure Sandbox** — Your code stays private, other apps can't access it
+- **Fast** — Runs natively on your phone's CPU, no cloud lag
+- **2 Commands Setup** — Copy-paste and you're ready to code
+- **Web + Terminal** — Use browser UI or terminal, your choice
 
 > Works with **OpenCode**, **Claude Code**, **Codex**, and **Gemini CLI**.  
 > This guide uses [OpenCode](https://opencode.ai).
