@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/install",
+      "destination": "https://raw.githubusercontent.com/rajbreno/PocketCode/main/setup.sh",
+      "permanent": false
+    }
+  ]
+}
