@@ -9,7 +9,7 @@
 **Features:**
 - **Secure Sandbox** — Your code stays private, other apps can't access it
 - **Fast** — Runs natively on your phone's CPU, no cloud lag
-- **2 Commands Setup** — Copy-paste and you're ready to code
+- **One Command Setup** — Copy-paste and you're ready to code
 - **Web + Terminal** — Use browser UI or terminal, your choice
 
 > Works with **OpenCode**, **Claude Code**, **Codex**, and **Gemini CLI**.  
@@ -24,66 +24,37 @@
 
 ---
 
-## ⚡ Option A: Quick Setup (2 Commands)
+## 🚀 Setup
 
-> **Choose this OR Option B below — not both!**
+> **Paste this single command in Termux and wait ~5 minutes:**
 
-**In Termux, run:**
 ```
-pkg update -y && pkg upgrade -y && pkg install proot-distro -y && proot-distro install debian && proot-distro login debian
-```
-
-**Inside Linux (when your prompt changes to `root@localhost`), run:**
-```
-apt update && apt install curl git build-essential python3 -y && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install nodejs -y && curl -fsSL https://opencode.ai/install | bash && echo 'alias opencode-web="opencode web --hostname 127.0.0.1 --port 4096"' >> ~/.bashrc && source ~/.bashrc
+curl -sL https://raw.githubusercontent.com/rajbreno/PocketCode/main/setup.sh | bash
 ```
 
-✅ **Done!** Skip to [How to Use](#how-to-use).
+✅ **Done!** Type `pocketcode` to enter Linux, then `opencode` to start.
 
 ---
 
-## 📝 Option B: Step-by-Step Setup
+## 📁 Setting Up Your Project Folder (Acode)
 
-> **Skip this if you already did Option A above.**
+**Step 1: Install Acode**
+- Download [Acode](https://play.google.com/store/apps/details?id=com.foxdebug.acodefree) from Play Store
 
-Open Termux and run each command. Copy one block at a time.
+**Step 2: Connect Acode to Termux**
+1. Open Acode → tap **☰ hamburger menu** (top left)
+2. Tap **Open Folder** → **Add Storage** → **Select Folder**
+3. Your phone storage opens → tap **☰ hamburger menu** again
+4. Select **Termux** → tap **Use This Folder**
+5. Back in Acode → tap **OK**
+6. A **Home** folder appears → select it → tap **✓** (bottom right)
 
-**Step 1: Update Termux**
-```
-pkg update -y && pkg upgrade -y
-```
+**Step 3: Create Your Projects Folder**
+1. Go to **File Manager** in Acode → you'll see the **Home** folder
+2. Long press **Home** → select **New Folder**
+3. Name it `projects` → tap **OK**
 
-**Step 2: Install Linux**
-```
-pkg install proot-distro -y && proot-distro install debian
-```
-
-**Step 3: Enter Linux**
-```
-proot-distro login debian
-```
-✅ Success! Your prompt should change to `root@localhost`
-
-**Step 4: Install Tools**
-```
-apt update && apt install curl git build-essential python3 -y
-```
-
-```
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt install nodejs -y
-```
-
-**Step 5: Install OpenCode**
-```
-curl -fsSL https://opencode.ai/install | bash
-```
-
-**Step 6: Create Shortcut** (so you can type `opencode-web` instead of long commands)
-```
-echo 'alias opencode-web="opencode web --hostname 127.0.0.1 --port 4096"' >> ~/.bashrc && source ~/.bashrc
-```
-
-✅ **Setup complete!**
+✅ Done! Now create project folders inside `projects`.
 
 ---
 
@@ -91,22 +62,32 @@ echo 'alias opencode-web="opencode web --hostname 127.0.0.1 --port 4096"' >> ~/.
 
 Every time you open Termux, run:
 ```
-proot-distro login debian
+pocketcode
+```
+
+**First time only** — link your Acode folder:
+```
+ln -s /data/data/com.termux/files/home/projects ~/projects
+```
+
+**Go to your project:**
+```
+cd projects/my-app
 ```
 
 Then choose how you want to use the AI:
 
-### 🌐 Option 1: Web Interface
-```
-opencode-web
-```
-Open Chrome → `localhost:4096`
-
-### 💻 Option 2: Terminal Only
+### 💻 Option 1: Terminal
 ```
 opencode
 ```
 Chat directly in Termux.
+
+### 🌐 Option 2: Web Interface
+```
+opencode-web
+```
+Open Chrome → `localhost:4096`
 
 ---
 
@@ -116,19 +97,14 @@ Chat directly in Termux.
 
 **Preview your website:**
 
-| Project Type | Command | Browser URL |
-|--------------|---------|-------------|
-| HTML / Static | `python3 -m http.server 8080` | `localhost:8080` |
-| React / Next.js | `npm run dev` | `localhost:3000` |
+| Project Type | Command | Port |
+|--------------|---------|------|
+| HTML / Static | `npx serve` | 3000 |
+| Vite / React | `npm run build && npm run preview` | 4173 |
+| Next.js | `npm run build && npm start` | 3000 |
+| Expo | `npx expo start --tunnel` | Scan QR |
 
----
-
-## File Management (Optional)
-
-**Using Acode App:**
-1. Install [Acode](https://play.google.com/store/apps/details?id=com.foxdebug.acode)
-2. Open Acode → Files → Add Path → Termux → home
-3. Edit files visually
+> **Tip:** `xdg-open http://localhost:<port>` opens the URL in your Android browser.
 
 ---
 
@@ -172,8 +148,8 @@ Your backup will be in the **Downloads** folder.
 | Problem | Fix |
 |---------|-----|
 | "Address already in use" | `pkill node` |
-| Commands not found | `source ~/.bashrc` |
-| Termux closes randomly | Settings → Apps → Termux → Battery → Unrestricted |
+| Termux closes randomly | Pull down notification → tap **Acquire Wakelock** |
+| Termux still closes | Settings → Apps → Termux → Battery → Unrestricted |
 
 ---
 
