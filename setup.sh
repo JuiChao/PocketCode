@@ -17,9 +17,9 @@ echo "📦 Installing Linux container..."
 pkg install proot-distro -y > /dev/null 2>&1
 proot-distro install ubuntu > /dev/null 2>&1 || true
 
-# Step 3: Setup inside Debian
+# Step 3: Setup inside ubuntu
 echo "⚙️ Setting up development environment..."
-proot-distro login debian -- bash -c '
+proot-distro login ubuntu -- bash -c '
   apt update > /dev/null 2>&1
   apt install curl git build-essential python3 -y > /dev/null 2>&1
   curl -fsSL https://deb.nodesource.com/setup_20.x 2>/dev/null | bash - > /dev/null 2>&1
@@ -30,7 +30,7 @@ proot-distro login debian -- bash -c '
 
 # Step 4: Create shortcut alias
 echo "🔗 Creating shortcuts..."
-echo 'alias pocketcode="proot-distro login debian"' >> ~/.bashrc
+echo 'alias pocketcode="proot-distro login ubuntu"' >> ~/.bashrc
 source ~/.bashrc
 
 # Step 5: Source bashrc to make alias available immediately
