@@ -25,6 +25,8 @@ proot-distro login ubuntu -- bash -c '
   curl -fsSL https://deb.nodesource.com/setup_20.x 2>/dev/null | bash - > /dev/null 2>&1
   apt install nodejs -y > /dev/null 2>&1
   curl -fsSL https://opencode.ai/install 2>/dev/null | bash > /dev/null 2>&1
+  curl -fsSL https://bun.sh/install 2>/dev/null | bash > /dev/null 2>&1
+  bunx oh-my-opencode install
   echo "alias opencode-web=\"opencode web --hostname 127.0.0.1 --port 4096\"" >> ~/.bashrc
 '
 
