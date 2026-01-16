@@ -15,7 +15,7 @@ pkg upgrade -y > /dev/null 2>&1
 # Step 2: Install proot-distro
 echo "📦 Installing Linux container..."
 pkg install proot-distro -y > /dev/null 2>&1
-proot-distro install debian > /dev/null 2>&1 || true
+proot-distro install ubuntu > /dev/null 2>&1 || true
 
 # Step 3: Setup inside Debian
 echo "⚙️ Setting up development environment..."
