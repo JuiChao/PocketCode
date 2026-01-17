@@ -27,7 +27,6 @@ proot-distro login ubuntu -- bash -c '
   curl -fsSL https://opencode.ai/install 2>/dev/null | bash > /dev/null 2>&1
   curl -fsSL https://bun.sh/install 2>/dev/null | bash > /dev/null 2>&1
   source /root/.bashrc
-  bunx oh-my-opencode install > /dev/null 2>&1
   echo "alias opencode-web=\"opencode web --hostname 127.0.0.1 --port 4096\"" >> ~/.bashrc
 '
 
